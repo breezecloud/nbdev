@@ -99,7 +99,7 @@ _re_catch_title = re.compile('^title\s*:\s*(\S+.*)$', re.MULTILINE)
 # Cell
 def _get_title(fname):
     "Grabs the title of html file `fname`"
-    with open(fname, 'r') as f: code = f.read()
+    with open(fname, 'r',encoding='utf-8') as f: code = f.read()
     src =  _re_catch_title.search(code)
     return fname.stem if src is None else src.groups()[0]
 

@@ -372,7 +372,7 @@ def convert_nb(fname, cls=HTMLExporter, template_file=None, exporter=None, dest=
     nb = execute_nb(nb, mod=mod)
     nb['cells'] = [clean_exports(c) for c in nb['cells']]
     if exporter is None: exporter = nbdev_exporter(cls=cls, template_file=template_file)
-    with open(_nb2htmlfname(fname, dest=dest),'w') as f:
+    with open(_nb2htmlfname(fname, dest=dest),'w',encoding='utf-8') as f:
         f.write(exporter.from_notebook_node(nb, resources=meta_jekyll)[0])
 
 # Cell
